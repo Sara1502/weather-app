@@ -1,0 +1,13 @@
+* {
+    font-family: 'Audiowide Static', 'sant-serif';
+    box-sizing: border-box;
+}
+
+:root {
+    --cool-color: #857F91;
+    --cool-font-color: #BCCEED;
+    --spring-color: #8DA249;
+    --spring-font-color: #F5FDBB;
+    --heat-color: #F89254;
+    --heat-font-color: #FBE1B5;
+}
