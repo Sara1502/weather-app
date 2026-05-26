@@ -28,7 +28,7 @@
 *.sqlite3
 .data
 .csv
-.txt
+*.txt
 
 # OS generated files #
 ######################
