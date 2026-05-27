@@ -1,13 +1,54 @@
 * {
-    font-family: 'Audiowide Static', 'sant-serif';
+    font-family: 'Audiowide', 'sant-serif';
     box-sizing: border-box;
 }
 
 :root {
-    --cool-color: #857F91;
-    --cool-font-color: #BCCEED;
+    --cold-color: #857F91;
+    --cold-font-color: #BCCEED;
     --spring-color: #8DA249;
     --spring-font-color: #F5FDBB;
-    --heat-color: #F89254;
-    --heat-font-color: #FBE1B5;
+    --hot-color: #F89254;
+    --hot-font-color: #FBE1B5;
 }
+
+
+.cold {
+    background-color: var(--cold-color);
+    color: var(--cold-font-color);
+}
+
+.hot {
+    background-color: var(--hot-color);
+    color: var(--hot-font-color);
+}
+
+.spring {
+    background-color: var(--spring-color);
+    color: var(--spring-font-color);
+}
+
+.cold-rain {
+    background-image: url('../img/coldRain.jpg');
+}
+
+.cold-sun {
+    background-image: url('../img/coldSun.jpg');
+}
+
+.hot-rain {
+    background-image: url('../img/hotRain.jpg');
+}
+
+.hot-sun {
+    background-image: url('../img/hotSun.jpg');
+}
+
+.spring-rain {
+    background-image: url('../img/springRain.jpg');
+}
+
+.spring-sun {
+    background-image: url('../img/springSun.jpg');
+}
+
