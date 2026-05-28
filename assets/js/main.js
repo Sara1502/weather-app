@@ -4,11 +4,12 @@ navigator.geolocation.getCurrentPosition(
         const latitude = position.coords.latitude;
         const longitude = position.coords.longitude;
 
-        fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${OPENWEATHER_API_KEY}&lang=pt_br&units=metric`)
+        fetch(`/api/clima?lat=${latitude}&lon=${longitude}`)
             .then(res => res.json())
             .then(data => {
                 const temp = Math.round(data.main.temp);
                 const description = data.weather[0].description;
+                const weatherId = data.weather[0].id;
 
                 const conteudo = document.getElementById('body')
                 conteudo.innerHTML = `     
@@ -26,7 +27,7 @@ navigator.geolocation.getCurrentPosition(
 
                 const main = document.querySelector('main')
                 main.classList.remove('cold-rain', 'cold-sun', 'sping-rain', 'spring-sun', 'hot-rain', 'hot-sun')
-                main.classList.add(addClassMain(temp, description))
+                main.classList.add(addClassMain(temp, weatherId))
             }
             )
     },
@@ -37,27 +38,18 @@ navigator.geolocation.getCurrentPosition(
 
 
 function addClassSection(temp) {
-    if (temp < 20) {
-        return 'cold'
-    } else if (temp >= 20 && temp <= 26) {
-        return 'spring'
-    } else {
-        return 'hot'
-    }
+    if (temp < 20) return 'cold'
+    if (temp >= 20 && temp <= 26) return 'spring'
+    if (temp > 26) return 'hot'
 }
 
-function addClassMain(temp, description) {
-    if (temp < 20 && description.toLowerCase().includes('chuva')) {
-        return 'cold-rain'
-    } else if (temp < 20 && !description.toLowerCase().includes('chuva')) {
-        return 'cold-sun'
-    } else if (temp >= 20 && temp <= 26 && description.toLowerCase().includes('chuva')) {
-        return 'spring-rain'
-    } else if (temp >= 20 && temp <= 26 && !description.toLowerCase().includes('chuva')) {
-        return 'spring-sun'
-    } else if (temp > 26 && description.toLowerCase().includes('chuva')) {
-        return 'hot-rain'
-    } else {
-        return 'hot-sun'
-    }
+function addClassMain(temp, weatherId) {
+    const rain = weatherId < 600;
+
+    if (temp < 20 && rain) return 'cold-rain'
+    if (temp < 20 && !rain) return 'cold-sun'
+    if (temp >= 20 && temp <= 26 && rain) return 'spring-rain'
+    if (temp >= 20 && temp <= 26 && !rain) return 'spring-sun'
+    if (temp > 26 && rain) return 'hot-rain'
+    if (temp > 26 && !rain) return 'hot-sun'
 }
