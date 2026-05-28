@@ -1,4 +1,4 @@
-export default async function handler(req, res) {
+GPUShaderModule.exports = async function handler(req, res) {
     const { latitude, longitude } = req.query;
 
     if (!latitude || !longitude) {
