@@ -38,26 +38,26 @@ navigator.geolocation.getCurrentPosition(
 
 function addClassSection(temp) {
     if (temp < 20) {
-        return ('cold')
+        return 'cold'
     } else if (temp >= 20 && temp <= 26) {
-        return ('spring')
+        return 'spring'
     } else {
-        return ('hot')
+        return 'hot'
     }
 }
 
 function addClassMain(temp, description) {
-    if (temp < 20 && description == 'chuva') {
-        return ('cold-rain')
-    } else if (temp < 20 && description !== 'chuva') {
-        return ('cold-sun')
-    } else if (temp >= 20 && temp <= 26 && description == 'chuva') {
-        return ('spring-rain')
-    } else if (temp >= 20 && temp <= 26 && description !== 'chuva') {
-        return ('spring-sun')
-    } else if (temp > 26 && description == 'chuva') {
-        return ('hot-rain')
+    if (temp < 20 && description.toLowerCase().includes('chuva')) {
+        return 'cold-rain'
+    } else if (temp < 20 && !description.toLowerCase().includes('chuva')) {
+        return 'cold-sun'
+    } else if (temp >= 20 && temp <= 26 && description.toLowerCase().includes('chuva')) {
+        return 'spring-rain'
+    } else if (temp >= 20 && temp <= 26 && !description.toLowerCase().includes('chuva')) {
+        return 'spring-sun'
+    } else if (temp > 26 && description.toLowerCase().includes('chuva')) {
+        return 'hot-rain'
     } else {
-        return ('hot-sun')
+        return 'hot-sun'
     }
 }
