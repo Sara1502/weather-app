@@ -29,26 +29,26 @@
 }
 
 .cold-rain {
-    background-image: url('../img/coldRain.jpg');
+    background-image: url('../img/cold-rain.gif');
 }
 
 .cold-sun {
-    background-image: url('../img/coldSun.jpg');
+    background-image: url('../img/cold-sun.gif');
 }
 
 .hot-rain {
-    background-image: url('../img/hotRain.jpg');
+    background-image: url('../img/hot-rain.gif');
 }
 
 .hot-sun {
-    background-image: url('../img/hotSun.jpg');
+    background-image: url('../img/hot-sun.jpg');
 }
 
 .spring-rain {
-    background-image: url('../img/springRain.jpg');
+    background-image: url('../img/spring-rain.gif');
 }
 
 .spring-sun {
-    background-image: url('../img/springSun.jpg');
+    background-image: url('../img/spring-sun.gif');
 }
 
